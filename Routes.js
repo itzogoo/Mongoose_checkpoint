@@ -19,7 +19,7 @@ Router.get('/create-person', (req, res) => {
 });
 
 // Create Many Records with model.create()
-router.get('/create-people', (req, res) => {
+Router.get('/create-people', (req, res) => {
   const arrayOfPeople = [
     { name: 'Alice', age: 30, favoriteFoods: ['Sushi', 'Burger'] },
     { name: 'Bob', age: 28, favoriteFoods: ['Taco', 'Salad'] }
@@ -32,7 +32,7 @@ router.get('/create-people', (req, res) => {
 });
 
 // Use model.find() to Search Your Database
-router.get('/find-people', (req, res) => {
+Router.get('/find-people', (req, res) => {
     Person.find({ name: 'John' }, (err, data) => {
       if (err) return res.status(500).send('Error finding people');
       res.status(200).json(data);
@@ -40,7 +40,7 @@ router.get('/find-people', (req, res) => {
   });
   
   // Use model.findOne() to Return a Single Matching Document from Your Database
-  router.get('/find-person', (req, res) => {
+  Router.get('/find-person', (req, res) => {
     Person.findOne({ favoriteFoods: 'Burger' }, (err, data) => {
       if (err) return res.status(500).send('Error finding person');
       res.status(200).json(data);
